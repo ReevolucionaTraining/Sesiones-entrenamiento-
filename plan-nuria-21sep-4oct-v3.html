@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de Entrenamiento — Nuria (21 sep - 4 oct)</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#09090F;--surface:#111118;--surface2:#18181F;--surface3:#20202A;
+    --border:#2A2A36;--border2:#353545;
+    --lime:#C6F135;--lime-dim:rgba(198,241,53,0.09);--lime-b:rgba(198,241,53,0.30);
+    --orange:#FF6B35;--orange-dim:rgba(255,107,53,0.10);--orange-b:rgba(255,107,53,0.32);
+    --blue:#5B9EF4;--blue-dim:rgba(91,158,244,0.10);--blue-b:rgba(91,158,244,0.28);
+    --violet:#9B79F5;--violet-dim:rgba(155,121,245,0.10);--violet-b:rgba(155,121,245,0.28);
+    --gold:#F0B429;--gold-dim:rgba(240,180,41,0.10);--gold-b:rgba(240,180,41,0.28);
+    --teal:#3ECFB2;--teal-dim:rgba(62,207,178,0.10);--teal-b:rgba(62,207,178,0.28);
+    --red:#F45B69;--red-dim:rgba(244,91,105,0.10);--red-b:rgba(244,91,105,0.32);
+    --pink:#FF36AB;
+    --text:#EAEAF5;--muted:#72728A;--dim:#3A3A50;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;padding-bottom:80px;}
+
+  .hero{padding:28px 20px 20px;max-width:520px;margin:0 auto;text-align:center;position:relative;}
+  .hero::before{content:'';position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;height:260px;background:radial-gradient(ellipse at 50% -10%,rgba(155,121,245,0.14) 0%,transparent 65%);pointer-events:none;z-index:0;}
+  .hero-title{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:6px;position:relative;z-index:1;}
+  .hero-title span{color:var(--violet);}
+  .brandmark{position:relative;z-index:1;display:inline-flex;flex-direction:column;align-items:center;margin-bottom:20px;}
+  .brandmark-row{display:flex;align-items:center;gap:4px;}
+  .brand-word{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:800;letter-spacing:-.02em;color:#fff;}
+  .brand-word sup{font-size:11px;position:relative;top:-14px;}
+  .brand-training{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;letter-spacing:.42em;color:#fff;margin-top:2px;margin-left:.42em;}
+  .brand-chevrons{display:flex;align-items:center;gap:8px;margin-top:8px;}
+  .chevron{width:56px;height:12px;}
+  .chevron-pink{background:var(--pink);clip-path:polygon(0 0,80% 0,100% 50%,80% 100%,0 100%,20% 50%);}
+  .chevron-teal{background:var(--teal);clip-path:polygon(20% 0,100% 0,80% 50%,100% 100%,20% 100%,0 50%);}
+  .brand-tagline{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:600;letter-spacing:.2em;color:var(--muted);white-space:nowrap;}
+  .hero-sub{font-size:13px;color:var(--muted);margin-bottom:18px;position:relative;z-index:1;}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;position:relative;z-index:1;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 6px;text-align:center;}
+  .stat-val{font-family:'Space Grotesk',monospace;font-size:15px;font-weight:700;color:var(--violet);line-height:1;margin-bottom:3px;}
+  .stat-label{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+
+  .note{max-width:520px;margin:16px auto 0;padding:0 20px;}
+  .note-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+  .note-title{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;margin-bottom:6px;letter-spacing:.05em;text-transform:uppercase;}
+  .note-text{font-size:12.5px;color:var(--text);line-height:1.65;}
+  .note.info .note-card{border-color:var(--blue-b);background:var(--blue-dim);}
+  .note.info .note-title{color:var(--blue);}
+  .note.warn .note-card{border-color:var(--orange-b);background:var(--orange-dim);}
+  .note.warn .note-title{color:var(--orange);}
+
+  .hz-grid{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+  .hz-row{display:grid;grid-template-columns:32px 108px 1fr;align-items:center;gap:10px;background:var(--surface2);border:1px solid var(--border2);border-left:4px solid var(--zc);border-radius:8px;padding:9px 10px;}
+  .hz-z{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:13px;color:var(--zc);}
+  .hz-r{font-family:'Space Grotesk',monospace;font-size:12px;font-weight:700;color:var(--text);}
+  .hz-d{font-size:11px;color:var(--muted);}
+
+  .blocks{max-width:520px;margin:18px auto 0;padding:0 20px;}
+
+  .week-card{background:var(--surface);border:1px solid var(--violet-b);border-radius:16px;margin-bottom:12px;overflow:hidden;}
+  .week-top{display:flex;align-items:center;padding:16px 16px;gap:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .week-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--violet-dim);font-family:'Space Grotesk',sans-serif;font-weight:800;color:var(--violet);}
+  .week-info{flex:1;min-width:0;}
+  .week-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
+  .week-meta{display:flex;flex-wrap:wrap;gap:5px;}
+  .wm{font-family:'Space Grotesk',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.03em;background:var(--surface2);color:var(--muted);}
+  .week-chev{color:var(--dim);font-size:12px;transition:transform .2s;flex-shrink:0;}
+  .week-chev.open{transform:rotate(180deg);}
+  .week-body{display:none;padding:0 16px 16px;border-top:1px solid var(--border);}
+  .week-body.open{display:block;}
+
+  .block-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;margin-top:10px;overflow:hidden;}
+  .block-card.bCardio{border-color:var(--teal-b);}
+  .block-card.bHybrid{border-color:var(--orange-b);}
+  .block-card.bStrength{border-color:var(--gold-b);}
+  .block-top{display:flex;align-items:center;padding:12px 14px;gap:10px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .block-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+  .bi-Cardio{background:var(--teal-dim);}
+  .bi-Hybrid{background:var(--orange-dim);}
+  .bi-Strength{background:var(--gold-dim);}
+  .block-info{flex:1;min-width:0;}
+  .block-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+  .block-meta{display:flex;flex-wrap:wrap;gap:4px;}
+  .bmeta{font-family:'Space Grotesk',monospace;font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;}
+  .bm-t{background:var(--surface3);color:var(--muted);}
+  .bm-rpe{background:var(--orange-dim);color:var(--orange);}
+  .chev{color:var(--dim);font-size:11px;transition:transform .2s;flex-shrink:0;}
+  .chev.open{transform:rotate(180deg);}
+  .block-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border);}
+  .block-body.open{display:block;}
+
+  .obj-line{font-size:11.5px;color:var(--text);line-height:1.5;padding:10px 0 4px;border-bottom:1px solid var(--border);margin-bottom:2px;}
+  .obj-line b{color:var(--violet);font-family:'Space Grotesk',sans-serif;}
+
+  .ex-row{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--border);}
+  .ex-row:last-child{border-bottom:none;}
+  .ex-num{font-family:'Space Grotesk',monospace;font-size:10px;color:var(--dim);min-width:16px;padding-top:2px;flex-shrink:0;}
+  .ex-name{font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:3px;}
+  .ex-params{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;}
+  .ep{font-family:'Space Grotesk',monospace;font-size:9px;font-weight:600;background:var(--surface3);border:1px solid var(--border2);color:var(--muted);padding:2px 6px;border-radius:3px;}
+  .ep.hy{background:var(--orange-dim);border-color:var(--orange-b);color:var(--orange);}
+  .ep.st{background:var(--gold-dim);border-color:var(--gold-b);color:var(--gold);}
+  .ex-note{font-size:11px;color:var(--muted);line-height:1.45;}
+  .yt-link{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--teal);text-decoration:none;border:1px solid var(--teal-b);background:var(--teal-dim);padding:2px 7px;border-radius:4px;margin-top:5px;font-family:'Space Grotesk',sans-serif;font-weight:600;}
+
+  .alert{border-radius:9px;padding:10px 12px;margin-top:10px;display:flex;gap:8px;font-size:11.5px;line-height:1.5;color:var(--text);}
+  .al{background:var(--lime-dim);border:1px solid var(--lime-b);}
+  .ao{background:var(--orange-dim);border:1px solid var(--orange-b);}
+  .as{background:var(--blue-dim);border:1px solid var(--blue-b);}
+  .alert strong{font-family:'Space Grotesk',sans-serif;font-size:10.5px;font-weight:700;display:block;margin-bottom:2px;}
+  .al strong{color:var(--lime);}
+  .ao strong{color:var(--orange);}
+  .as strong{color:var(--blue);}
+
+  .footer-note{max-width:520px;margin:16px auto 40px;padding:0 20px;text-align:center;font-size:11px;color:var(--dim);}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="brandmark">
+    <div class="brandmark-row">
+      <svg width="34" height="34" viewBox="0 0 100 100" fill="none">
+        <circle cx="58" cy="16" r="11" fill="#3ECFB2"/>
+        <path d="M50 30 L62 52 L44 58 L56 80 L38 98 M62 52 L85 62 M44 58 L20 70" stroke="#3ECFB2" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-word">EEVOLUCIONA<sup>®</sup></span>
+    </div>
+    <div class="brand-training">TRAINING</div>
+    <div class="brand-chevrons">
+      <div class="chevron chevron-pink"></div>
+      <span class="brand-tagline">ONLINE COACHING</span>
+      <div class="chevron chevron-teal"></div>
+    </div>
+  </div>
+  <div class="hero-title">Plan de <span>Nuria</span></div>
+  <div class="hero-sub">21 sep — 4 oct · Reentrada + build · Rumbo a Abeduriu Nocturna (10 oct) y Sobrescobio Speed Trail (25 oct)</div>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">2</div><div class="stat-label">Semanas</div></div>
+    <div class="stat"><div class="stat-val">2+2</div><div class="stat-label">Gym / Running</div></div>
+    <div class="stat"><div class="stat-val">19</div><div class="stat-label">Días a Nocturna</div></div>
+    <div class="stat"><div class="stat-val">🏔️</div><div class="stat-label">Reentrada→Build</div></div>
+  </div>
+</div>
+
+<div class="note warn">
+  <div class="note-card">
+    <div class="note-title">🏁 Calendario de carreras</div>
+    <div class="note-text">Abeduriu Trail Nocturna — sáb 10 oct, El Entrego, 8km/430m D+ (test intermedio). Sobrescobio Speed Trail — dom 25 oct, Rioseco, 17,5km/1.100m D+ (carrera objetivo). Ojo: el sábado 24 oct es la Sobrescobio Skyrace (32km/2.100m), una prueba distinta y mucho más larga — no es la tuya.</div>
+  </div>
+</div>
+
+<div class="note info">
+  <div class="note-card">
+    <div class="note-title">💓 Zonas de FC</div>
+    <div class="hz-grid">
+      <div class="hz-row" style="--zc:var(--blue)"><div class="hz-z">Z1</div><div class="hz-r">106-119 ppm</div><div class="hz-d">Recuperación</div></div>
+      <div class="hz-row" style="--zc:var(--teal)"><div class="hz-z">Z2</div><div class="hz-r">119-133 ppm</div><div class="hz-d">Resistencia aeróbica</div></div>
+      <div class="hz-row" style="--zc:var(--gold)"><div class="hz-z">Z3</div><div class="hz-r">133-146 ppm</div><div class="hz-d">Ritmo sostenible</div></div>
+      <div class="hz-row" style="--zc:var(--orange)"><div class="hz-z">Z4</div><div class="hz-r">146-159 ppm</div><div class="hz-d">Umbral</div></div>
+      <div class="hz-row" style="--zc:var(--red)"><div class="hz-z">Z5</div><div class="hz-r">159-173 ppm</div><div class="hz-d">Máximo</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="blocks">
+
+  <!-- SEMANA 1 -->
+  <div class="week-card" id="wc-1">
+    <div class="week-top" onclick="togW(1)">
+      <div class="week-icon">S1</div>
+      <div class="week-info">
+        <div class="week-title">Semana 1 (21-27 sep) — Reentrada</div>
+        <div class="week-meta"><span class="wm">Gym x2</span><span class="wm">Running x2</span><span class="wm">Carga moderada</span></div>
+      </div>
+      <div class="week-chev" id="wchev-1">▾</div>
+    </div>
+    <div class="week-body" id="wbody-1">
+
+      <div class="alert al"><span>😴</span><div><strong>Lunes 21 — Descanso</strong>Libre del todo.</div></div>
+
+      <div class="block-card bStrength">
+        <div class="block-top" onclick="tog('1D1')">
+          <div class="block-icon bi-Strength">🏋️</div>
+          <div class="block-info"><div class="block-title">Martes 22 — Gym: Fuerza unilateral (retomar)</div><div class="block-meta"><span class="bmeta bm-t">Barra · KB · Cajón</span><span class="bmeta bm-rpe">RPE 6-7</span></div></div>
+          <div class="chev" id="chev-1D1">▾</div>
+        </div>
+        <div class="block-body" id="body-1D1">
+          <div class="obj-line"><b>Objetivo:</b> retomar el trabajo de fuerza tras el parón de vacaciones sin ir a tope el primer día — bajamos carga/RPE respecto a lo que llevabas antes de parar.</div>
+          <div class="ex-row"><div class="ex-num">1</div><div>
+            <div class="ex-name">Sentadilla búlgara con barra</div>
+            <div class="ex-params"><span class="ep st">3x8/8</span></div>
+            <a class="yt-link" href="https://www.youtube.com/results?search_query=sentadilla+b%C3%BAlgara+con+barra+t%C3%A9cnica" target="_blank">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div>
+            <div class="ex-name">Peso muerto rumano a una pierna con barra</div>
+            <div class="ex-params"><span class="ep st">3x8/8</span></div>
+            <a class="yt-link" href="https://www.youtube.com/results?search_query=peso+muerto+rumano+a+una+pierna+con+barra+t%C3%A9cnica" target="_blank">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div>
+            <div class="ex-name">Step-up alto en cajón con kettlebell</div>
+            <div class="ex-params"><span class="ep st">3x8/8</span></div>
+          </div></div>
+          <div class="ex-note" style="padding:10px 0 4px;">Core (5'):</div>
+          <div class="ex-row"><div class="ex-num">4</div><div>
+            <div class="ex-name">Pallof press</div>
+            <div class="ex-params"><span class="ep hy">3x10/10</span></div>
+          </div></div>
+          <div class="ex-note" style="padding-top:8px;">Descansos 90" entre series. Duración total ~55'.</div>
+        </div>
+      </div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('1D2')">
+          <div class="block-icon bi-Cardio">🌊</div>
+          <div class="block-info"><div class="block-title">Miércoles 23 — Running: recorrido ondulado</div><div class="block-meta"><span class="bmeta bm-t">35-40 min</span><span class="bmeta bm-rpe">Z2-Z3</span></div></div>
+          <div class="chev" id="chev-1D2">▾</div>
+        </div>
+        <div class="block-body" id="body-1D2">
+          <div class="obj-line"><b>Objetivo:</b> retomar volumen en tu recorrido habitual. Deja que las subidas naturales suban la FC a Z3 sin forzar — no busques nada, solo rodar.</div>
+          <div class="ex-row"><div><div class="ex-name">Recorrido</div><div class="ex-note">35-40' por tu recorrido ondulado, Z2 (119-133 ppm) de base, Z3 (133-146 ppm) en las subidas.</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bHybrid">
+        <div class="block-top" onclick="tog('1D3')">
+          <div class="block-icon bi-Hybrid">⚡</div>
+          <div class="block-info"><div class="block-title">Jueves 24 — Gym: EMOM 18' variado</div><div class="block-meta"><span class="bmeta bm-t">Cinta · KB</span><span class="bmeta bm-rpe">RPE 7</span></div></div>
+          <div class="chev" id="chev-1D3">▾</div>
+        </div>
+        <div class="block-body" id="body-1D3">
+          <div class="obj-line"><b>Objetivo:</b> reactivar el motor híbrido, moderado — seguimos en fase de reentrada.</div>
+          <div class="ex-note" style="padding:4px 0 12px;">EMOM 18' (9 rondas de 2', alternando):</div>
+          <div class="ex-row"><div class="ex-num">1</div><div>
+            <div class="ex-name">Carrera en cinta a inclinación (6-8%)</div>
+            <div class="ex-params"><span class="ep hy">250m</span></div>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div>
+            <div class="ex-name">Kettlebell swing</div>
+            <div class="ex-params"><span class="ep hy">12 reps</span></div>
+          </div></div>
+          <div class="ex-note" style="padding:10px 0 4px;">Core (5'):</div>
+          <div class="ex-row"><div class="ex-num">3</div><div>
+            <div class="ex-name">Dead bug</div>
+            <div class="ex-params"><span class="ep hy">3x10/10</span></div>
+          </div></div>
+          <div class="ex-note" style="padding-top:8px;">Duración total ~50'.</div>
+        </div>
+      </div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('1D4')">
+          <div class="block-icon bi-Cardio">🏃‍♀️</div>
+          <div class="block-info"><div class="block-title">Viernes 25 — Running: continua Z2</div><div class="block-meta"><span class="bmeta bm-t">40 min</span></div></div>
+          <div class="chev" id="chev-1D4">▾</div>
+        </div>
+        <div class="block-body" id="body-1D4">
+          <div class="obj-line"><b>Objetivo:</b> base aeróbica, cierre de la semana de reentrada.</div>
+          <div class="ex-row"><div><div class="ex-name">Rodaje continuo</div><div class="ex-note">40' en Z2 (119-133 ppm).</div></div></div>
+        </div>
+      </div>
+
+      <div class="alert as"><span>🌤️</span><div><strong>Sábado y domingo</strong>Libre según sensaciones.</div></div>
+
+    </div>
+  </div>
+
+  <!-- SEMANA 2 -->
+  <div class="week-card" id="wc-2">
+    <div class="week-top" onclick="togW(2)">
+      <div class="week-icon">S2</div>
+      <div class="week-info">
+        <div class="week-title">Semana 2 (28 sep-4 oct) — Build hacia la Nocturna</div>
+        <div class="week-meta"><span class="wm">Gym x2</span><span class="wm">Running x2</span><span class="wm">Sube intensidad</span></div>
+      </div>
+      <div class="week-chev" id="wchev-2">▾</div>
+    </div>
+    <div class="week-body" id="wbody-2">
+
+      <div class="alert al"><span>😴</span><div><strong>Lunes 28 — Descanso</strong>Libre del todo.</div></div>
+
+      <div class="alert ao"><span>📈</span><div><strong>Qué cambia</strong>Ya reactivada, subimos carga de fuerza y volumen/intensidad en el recorrido. La semana del 5-11 oct (con la Nocturna el sábado 10) la bajamos de carga — eso lo programamos aparte cuando llegue.</div></div>
+
+      <div class="block-card bStrength">
+        <div class="block-top" onclick="tog('2D1')">
+          <div class="block-icon bi-Strength">🏋️</div>
+          <div class="block-info"><div class="block-title">Martes 29 — Gym: Fuerza unilateral + carry</div><div class="block-meta"><span class="bmeta bm-t">Barra · KB</span><span class="bmeta bm-rpe">RPE 7-8</span></div></div>
+          <div class="chev" id="chev-2D1">▾</div>
+        </div>
+        <div class="block-body" id="body-2D1">
+          <div class="obj-line"><b>Objetivo:</b> subir carga respecto a la semana de reentrada, retomando la progresión de antes de vacaciones.</div>
+          <div class="ex-row"><div class="ex-num">1</div><div>
+            <div class="ex-name">Sentadilla búlgara con barra</div>
+            <div class="ex-params"><span class="ep st">4x6/6</span></div>
+            <a class="yt-link" href="https://www.youtube.com/results?search_query=sentadilla+b%C3%BAlgara+con+barra+t%C3%A9cnica" target="_blank">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div>
+            <div class="ex-name">Peso muerto rumano a una pierna con barra</div>
+            <div class="ex-params"><span class="ep st">4x8/8</span></div>
+            <a class="yt-link" href="https://www.youtube.com/results?search_query=peso+muerto+rumano+a+una+pierna+con+barra+t%C3%A9cnica" target="_blank">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div>
+            <div class="ex-name">Farmer carry contralateral con kettlebell</div>
+            <div class="ex-params"><span class="ep st">3x20m/20m</span></div>
+          </div></div>
+          <div class="ex-note" style="padding:10px 0 4px;">Core (5'):</div>
+          <div class="ex-row"><div class="ex-num">4</div><div>
+            <div class="ex-name">Plancha lateral</div>
+            <div class="ex-params"><span class="ep hy">3x25"/25"</span></div>
+          </div></div>
+          <div class="ex-note" style="padding-top:8px;">Descansos 90-120" entre series. Duración total ~60'.</div>
+        </div>
+      </div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('2D2')">
+          <div class="block-icon bi-Cardio">🌊</div>
+          <div class="block-info"><div class="block-title">Miércoles 30 — Running: recorrido ondulado</div><div class="block-meta"><span class="bmeta bm-t">45 min</span><span class="bmeta bm-rpe">Z2-Z3, picos Z4</span></div></div>
+          <div class="chev" id="chev-2D2">▾</div>
+        </div>
+        <div class="block-body" id="body-2D2">
+          <div class="obj-line"><b>Objetivo:</b> más tiempo total y algo más de intensidad en las subidas que la semana pasada.</div>
+          <div class="ex-row"><div><div class="ex-name">Recorrido</div><div class="ex-note">45' por tu recorrido, Z2-Z3 de base, permitiendo tocar Z4 (146-159 ppm) puntualmente en los tramos más empinados.</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bHybrid">
+        <div class="block-top" onclick="tog('2D3')">
+          <div class="block-icon bi-Hybrid">⚡</div>
+          <div class="block-info"><div class="block-title">Jueves 1 oct — Gym: Chipper (FOR TIME)</div><div class="block-meta"><span class="bmeta bm-t">Remo · KB · Cinta</span><span class="bmeta bm-rpe">RPE 7-8</span></div></div>
+          <div class="chev" id="chev-2D3">▾</div>
+        </div>
+        <div class="block-body" id="body-2D3">
+          <div class="obj-line"><b>Objetivo:</b> variar formato, seguir con la transferencia carrera-fatiga que necesitas para la nocturna y para el trail.</div>
+          <div class="ex-row"><div class="ex-num">1</div><div>
+            <div class="ex-name">Remo ergómetro</div>
+            <div class="ex-params"><span class="ep hy">500m</span></div>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div>
+            <div class="ex-name">Kettlebell swing</div>
+            <div class="ex-params"><span class="ep hy">20 reps</span></div>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div>
+            <div class="ex-name">Zancada caminando con mancuernas</div>
+            <div class="ex-params"><span class="ep hy">20 reps</span></div>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">4</div><div>
+            <div class="ex-name">Carrera en cinta a inclinación (6-8%)</div>
+            <div class="ex-params"><span class="ep hy">400m</span></div>
+          </div></div>
+          <div class="ex-note" style="padding:10px 0 4px;">Core (5'):</div>
+          <div class="ex-row"><div class="ex-num">5</div><div>
+            <div class="ex-name">Hollow hold</div>
+            <div class="ex-params"><span class="ep hy">3x20"</span></div>
+          </div></div>
+          <div class="ex-note" style="padding-top:8px;">Duración total ~60'.</div>
+        </div>
+      </div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('2D4')">
+          <div class="block-icon bi-Cardio">🏃‍♀️</div>
+          <div class="block-info"><div class="block-title">Viernes 2 oct — Running: continua Z2 + cambios</div><div class="block-meta"><span class="bmeta bm-t">45 min</span></div></div>
+          <div class="chev" id="chev-2D4">▾</div>
+        </div>
+        <div class="block-body" id="body-2D4">
+          <div class="obj-line"><b>Objetivo:</b> empezar a meter algo de ritmo de carrera pensando en la nocturna de 8km.</div>
+          <div class="ex-row"><div><div class="ex-name">Rodaje continuo</div><div class="ex-note">45' en Z2 (119-133 ppm) con 4 x 1' a ritmo de carrera (Z4) cada 8', vuelta a Z2 sin parar.</div></div></div>
+        </div>
+      </div>
+
+      <div class="alert as"><span>🌤️</span><div><strong>Sábado y domingo</strong>Libre según sensaciones. Si os apetece, un test corto a ritmo de carrera no vendría mal de cara a la nocturna.</div></div>
+
+      <div class="alert al" style="margin-top:12px;text-align:center;"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;color:var(--lime);">De vuelta a la rutina — 19 días para la Nocturna, un mes justo para Sobrescobio 💪🏔️</div></div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-note">Reevoluciona Training · Online Coaching</div>
+
+<script>
+  function tog(id){
+    const b=document.getElementById('body-'+id);
+    const c=document.getElementById('chev-'+id);
+    if(!b)return;
+    b.classList.toggle('open');
+    if(c)c.classList.toggle('open');
+  }
+  function togW(id){
+    const b=document.getElementById('wbody-'+id);
+    const c=document.getElementById('wchev-'+id);
+    if(!b)return;
+    b.classList.toggle('open');
+    if(c)c.classList.toggle('open');
+  }
+  document.addEventListener('DOMContentLoaded',()=>togW(1));
+</script>
+</body>
+</html>
