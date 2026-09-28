@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Mensual Octubre — Anahy</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#09090F;--surface:#111118;--surface2:#18181F;--surface3:#20202A;
+    --border:#2A2A36;--border2:#353545;
+    --lime:#C6F135;--lime-dim:rgba(198,241,53,0.09);--lime-b:rgba(198,241,53,0.30);
+    --orange:#FF6B35;--orange-dim:rgba(255,107,53,0.10);--orange-b:rgba(255,107,53,0.32);
+    --blue:#5B9EF4;--blue-dim:rgba(91,158,244,0.10);--blue-b:rgba(91,158,244,0.28);
+    --violet:#9B79F5;--violet-dim:rgba(155,121,245,0.10);--violet-b:rgba(155,121,245,0.28);
+    --gold:#F0B429;--gold-dim:rgba(240,180,41,0.10);--gold-b:rgba(240,180,41,0.28);
+    --teal:#3ECFB2;--teal-dim:rgba(62,207,178,0.10);--teal-b:rgba(62,207,178,0.28);
+    --red:#F45B69;--red-dim:rgba(244,91,105,0.10);--red-b:rgba(244,91,105,0.32);
+    --pink:#FF36AB;--pink-dim:rgba(255,54,171,0.10);--pink-b:rgba(255,54,171,0.35);
+    --text:#EAEAF5;--muted:#72728A;--dim:#3A3A50;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;padding-bottom:80px;}
+
+  .hero{padding:28px 20px 20px;max-width:520px;margin:0 auto;text-align:center;position:relative;}
+  .hero::before{content:'';position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;height:260px;background:radial-gradient(ellipse at 50% -10%,rgba(62,207,178,0.14) 0%,transparent 65%);pointer-events:none;z-index:0;}
+  .brandmark{position:relative;z-index:1;display:inline-flex;flex-direction:column;align-items:center;margin-bottom:20px;}
+  .brandmark-row{display:flex;align-items:center;gap:4px;}
+  .brand-word{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:800;letter-spacing:-.02em;color:#fff;}
+  .brand-word sup{font-size:11px;position:relative;top:-14px;}
+  .brand-training{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;letter-spacing:.42em;color:#fff;margin-top:2px;margin-left:.42em;}
+  .brand-chevrons{display:flex;align-items:center;gap:8px;margin-top:8px;}
+  .chevron{width:56px;height:12px;}
+  .chevron-pink{background:var(--pink);clip-path:polygon(0 0,80% 0,100% 50%,80% 100%,0 100%,20% 50%);}
+  .chevron-teal{background:var(--teal);clip-path:polygon(20% 0,100% 0,80% 50%,100% 100%,20% 100%,0 50%);}
+  .brand-tagline{font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:600;letter-spacing:.2em;color:var(--muted);white-space:nowrap;}
+  .hero-title{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:6px;position:relative;z-index:1;}
+  .hero-title span{color:var(--teal);}
+  .hero-sub{font-size:13px;color:var(--muted);margin-bottom:18px;position:relative;z-index:1;}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;position:relative;z-index:1;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 6px;text-align:center;}
+  .stat-val{font-family:'Space Grotesk',monospace;font-size:15px;font-weight:700;color:var(--teal);line-height:1;margin-bottom:3px;}
+  .stat-label{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+
+  .note{max-width:520px;margin:16px auto 0;padding:0 20px;}
+  .note-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+  .note-title{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;margin-bottom:6px;letter-spacing:.05em;text-transform:uppercase;}
+  .note-text{font-size:12.5px;color:var(--text);line-height:1.65;}
+  .note-text b{color:var(--text);}
+  .note.caution .note-card{border-color:var(--red-b);background:var(--red-dim);}
+  .note.caution .note-title{color:var(--red);}
+  .note.info .note-card{border-color:var(--blue-b);background:var(--blue-dim);}
+  .note.info .note-title{color:var(--blue);}
+
+  .blocks{max-width:520px;margin:18px auto 0;padding:0 20px;}
+  .block-label{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding:0 0 8px;}
+
+  .week-card{background:var(--surface);border:1px solid var(--teal-b);border-radius:16px;margin-bottom:12px;overflow:hidden;}
+  .week-top{display:flex;align-items:center;padding:16px 16px;gap:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .week-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--teal-dim);font-family:'Space Grotesk',sans-serif;font-weight:800;color:var(--teal);}
+  .week-info{flex:1;min-width:0;}
+  .week-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
+  .week-meta{display:flex;flex-wrap:wrap;gap:5px;}
+  .wm{font-family:'Space Grotesk',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.03em;background:var(--surface2);color:var(--muted);}
+  .wm.rpe{background:var(--orange-dim);color:var(--orange);}
+  .week-chev{color:var(--dim);font-size:12px;transition:transform .2s;flex-shrink:0;}
+  .week-chev.open{transform:rotate(180deg);}
+  .week-body{display:none;padding:0 16px 16px;border-top:1px solid var(--border);}
+  .week-body.open{display:block;}
+
+  .block-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;margin-top:10px;overflow:hidden;}
+  .block-card.bA{border-color:var(--lime-b);}
+  .block-card.bB{border-color:var(--orange-b);}
+  .block-card.bCardio{border-color:var(--teal-b);}
+  .block-top{display:flex;align-items:center;padding:12px 14px;gap:10px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .block-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+  .bi-A{background:var(--lime-dim);}
+  .bi-B{background:var(--orange-dim);}
+  .bi-Cardio{background:var(--teal-dim);}
+  .block-info{flex:1;min-width:0;}
+  .block-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+  .block-meta{display:flex;flex-wrap:wrap;gap:4px;}
+  .bmeta{font-family:'Space Grotesk',monospace;font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;}
+  .bm-t{background:var(--surface3);color:var(--muted);}
+  .bm-rpe{background:var(--orange-dim);color:var(--orange);}
+  .chev{color:var(--dim);font-size:11px;transition:transform .2s;flex-shrink:0;}
+  .chev.open{transform:rotate(180deg);}
+  .block-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border);}
+  .block-body.open{display:block;}
+
+  .ex-row{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--border);}
+  .ex-row:last-child{border-bottom:none;}
+  .ex-num{font-family:'Space Grotesk',monospace;font-size:10px;color:var(--dim);min-width:16px;padding-top:2px;flex-shrink:0;}
+  .ex-name{font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:3px;}
+  .ex-params{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;}
+  .ep{font-family:'Space Grotesk',monospace;font-size:9px;font-weight:600;background:var(--surface3);border:1px solid var(--border2);color:var(--muted);padding:2px 6px;border-radius:3px;}
+  .ep.hi{background:var(--lime-dim);border-color:var(--lime-b);color:var(--lime);}
+  .ex-note{font-size:11px;color:var(--muted);line-height:1.45;}
+  .yt-link{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--teal);text-decoration:none;border:1px solid var(--teal-b);background:var(--teal-dim);padding:2px 7px;border-radius:4px;margin-top:5px;font-family:'Space Grotesk',sans-serif;font-weight:600;}
+
+  .alert{border-radius:9px;padding:10px 12px;margin-top:10px;display:flex;gap:8px;font-size:11.5px;line-height:1.5;color:var(--text);}
+  .al{background:var(--lime-dim);border:1px solid var(--lime-b);}
+  .ao{background:var(--orange-dim);border:1px solid var(--orange-b);}
+  .at{background:var(--teal-dim);border:1px solid var(--teal-b);}
+  .alert strong{font-family:'Space Grotesk',sans-serif;font-size:10.5px;font-weight:700;display:block;margin-bottom:2px;}
+  .al strong{color:var(--lime);}
+  .ao strong{color:var(--orange);}
+  .at strong{color:var(--teal);}
+
+  .qa{max-width:520px;margin:18px auto 0;padding:0 20px;}
+  .qa-card{background:var(--surface);border:1px solid var(--teal-b);border-radius:14px;padding:16px;}
+  .qa-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--teal);margin-bottom:10px;}
+  .qa-item{font-size:12.5px;color:var(--text);line-height:1.6;padding:8px 0;border-bottom:1px solid var(--border);}
+  .qa-item:last-child{border-bottom:none;}
+  .qa-num{color:var(--teal);font-family:'Space Grotesk',sans-serif;font-weight:700;margin-right:4px;}
+
+  .footer-note{max-width:520px;margin:16px auto 40px;padding:0 20px;text-align:center;font-size:11px;color:var(--dim);}
+  .block-card.bD{border-color:var(--gold-b);}
+  .bi-D{background:var(--gold-dim);}
+  .tbl{width:100%;border-collapse:collapse;margin-top:8px;font-size:11.5px;}
+  .tbl td,.tbl th{border-bottom:1px solid var(--border);padding:7px 4px;text-align:left;}
+  .tbl th{font-family:'Space Grotesk',sans-serif;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+  .tbl td.k{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--gold);white-space:nowrap;}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="brandmark">
+    <div class="brandmark-row">
+      <svg width="34" height="34" viewBox="0 0 100 100" fill="none">
+        <circle cx="58" cy="16" r="11" fill="#3ECFB2"/>
+        <path d="M50 30 L62 52 L44 58 L56 80 L38 98 M62 52 L85 62 M44 58 L20 70" stroke="#3ECFB2" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-word">EEVOLUCIONA<sup>®</sup></span>
+    </div>
+    <div class="brand-training">TRAINING</div>
+    <div class="brand-chevrons">
+      <div class="chevron chevron-pink"></div>
+      <span class="brand-tagline">ONLINE COACHING</span>
+      <div class="chevron chevron-teal"></div>
+    </div>
+  </div>
+  <div class="hero-title">Plan mensual de <span>Anahy</span></div>
+  <div class="hero-sub">Octubre — el mes de tu 10K de Salinas</div>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">4</div><div class="stat-label">Semanas</div></div>
+    <div class="stat"><div class="stat-val">25 oct</div><div class="stat-label">10K Salinas</div></div>
+    <div class="stat"><div class="stat-val">5'18"</div><div class="stat-label">Ritmo objetivo</div></div>
+    <div class="stat"><div class="stat-val">🎯</div><div class="stat-label">Llegar fresca</div></div>
+  </div>
+</div>
+
+<div class="note">
+  <div class="note-card">
+    <div class="note-title" style="color:var(--teal);">Hola Anahy 👋</div>
+    <div class="note-text">Llegó el mes de la carrera. El trabajo duro ya está hecho: este mes no se trata de meter más, sino de llegar al domingo 25 con las piernas frescas y la cabeza tranquila. Vas a ver que baja el volumen semana a semana (a propósito) y que el ritmo de carrera, 5'18"/km, sigue presente en cada sesión de calidad para que tu cuerpo lo tenga bien reconocido. Si un día te encuentras cansada, prefiero que rodes suave a que fuerces: ahora una sesión de menos no te quita nada, una de más sí puede.</div>
+  </div>
+</div>
+
+<div class="note info">
+  <div class="note-card">
+    <div class="note-title">🩺 Tus guardias</div>
+    <div class="note-text">Igual que siempre: el día que tengas guardia, movilidad y estiramientos en vez de la sesión. Si te cae una guardia en un día de calidad (series o tempo), no lo recuperes otro día: avísame y lo recolocamos. Y en la semana de la carrera, si puedes evitar una guardia larga el sábado, mejor.</div>
+  </div>
+</div>
+
+<div class="note">
+  <div class="note-card">
+    <div class="note-title" style="color:var(--gold);">Referencia de pulsaciones</div>
+    <div class="note-text">En tus entrenos, al ritmo objetivo tu pulso se mueve alrededor de 158-165 lpm. Es tu zona de carrera. Si en la carrera te ves por encima de 170 antes del kilómetro 8, afloja un poquito; y si llegas al 8 con margen, ahí es donde se aprieta.</div>
+  </div>
+</div>
+
+<div class="blocks">
+
+  <!-- SEMANA 1 -->
+  <div class="week-card" id="wc-1">
+    <div class="week-top" onclick="togW(1)">
+      <div class="week-icon">S1</div>
+      <div class="week-info">
+        <div class="week-title">Semana 1 · 5–11 oct — Última calidad fuerte</div>
+        <div class="week-meta"><span class="wm">5 x 1000m a ritmo</span><span class="wm rpe">largo 60'</span></div>
+      </div>
+      <div class="week-chev" id="wchev-1">▾</div>
+    </div>
+    <div class="week-body" id="wbody-1">
+
+      <div class="alert at"><span>🎯</span><div><strong>Objetivo de esta semana</strong>Es la última semana con carga real. Cerramos el trabajo de ritmo con series y un rodaje largo que termina rápido, y desde la semana 2 todo va bajando.</div></div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('1R')">
+          <div class="block-icon bi-Cardio">🏃‍♀️</div>
+          <div class="block-info"><div class="block-title">Carrera — D1 / D3 / D6</div><div class="block-meta"><span class="bmeta bm-t">3 salidas</span></div></div>
+          <div class="chev" id="chev-1R">▾</div>
+        </div>
+        <div class="block-body" id="body-1R">
+          <div class="ex-row"><div class="ex-num">D1</div><div><div class="ex-name">Rodaje suave</div><div class="ex-note">40' cómodo, respirando fácil.</div></div></div>
+          <div class="ex-row"><div class="ex-num">D3</div><div><div class="ex-name">Series a ritmo de carrera</div><div class="ex-note">Calentamiento 15' + 5 x 1000m a 5'18"/km, recuperando 90" trotando suave + 10' de vuelta a la calma. Que salgan parejas: la última tan buena como la primera.</div></div></div>
+          <div class="ex-row"><div class="ex-num">D6</div><div><div class="ex-name">Rodaje largo con final a ritmo</div><div class="ex-note">60': los primeros 45' suaves y los últimos 15' a 5'18"/km. Es el ensayo de sentirte bien cuando ya llevas rato.</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bB">
+        <div class="block-top" onclick="tog('1H')">
+          <div class="block-icon bi-B">🔥</div>
+          <div class="block-info"><div class="block-title">HIIT — martes y jueves</div><div class="block-meta"><span class="bmeta bm-t">El Llano · 2 sesiones</span></div></div>
+          <div class="chev" id="chev-1H">▾</div>
+        </div>
+        <div class="block-body" id="body-1H">
+          <div class="ex-note" style="padding:10px 0;">Martes y jueves en El Llano. Es la última semana en la que vas con normalidad. Ojo: el martes queda justo antes de las series del miércoles, así que guarda algo de energía.</div>
+        </div>
+      </div>
+
+      <div class="block-card bA">
+        <div class="block-top" onclick="tog('1F')">
+          <div class="block-icon bi-A">💪</div>
+          <div class="block-info"><div class="block-title">Fuerza — sesión de gimnasio</div><div class="block-meta"><span class="bmeta bm-t">~40 min</span><span class="bmeta bm-rpe">cuesta</span></div></div>
+          <div class="chev" id="chev-1F">▾</div>
+        </div>
+        <div class="block-body" id="body-1F">
+          <div class="alert ao"><span>💡</span><div>Mantén el peso de septiembre, no subas. Ya no buscamos ganar fuerza, buscamos conservarla.</div></div>
+          <div class="ex-row"><div class="ex-num">1</div><div><div class="ex-name">Bulgarian split squat</div><div class="ex-params"><span class="ep hi">3 x 8/8</span></div><a class="yt-link" href="https://www.youtube.com/watch?v=hiLF_pF3EJM" target="_blank">▶ Ver técnica</a></div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div><div class="ex-name">Peso muerto unilateral</div><div class="ex-params"><span class="ep hi">3 x 8/8</span></div><a class="yt-link" href="https://www.youtube.com/watch?v=wHMRxe9qZ84" target="_blank">▶ Ver técnica</a></div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div><div class="ex-name">Hip thrust</div><div class="ex-params"><span class="ep hi">3 x 8</span></div><a class="yt-link" href="https://www.youtube.com/watch?v=c27ezP6vxbQ" target="_blank">▶ Ver técnica</a></div></div>
+          <div class="ex-row"><div class="ex-num">4</div><div><div class="ex-name">Remo unilateral</div><div class="ex-params"><span class="ep hi">3 x 10</span></div><a class="yt-link" href="https://www.youtube.com/watch?v=ryhxLQUn-cQ" target="_blank">▶ Ver técnica</a></div></div>
+          <div class="ex-row"><div class="ex-num">5</div><div><div class="ex-name">Press militar</div><div class="ex-params"><span class="ep hi">3 x 8</span></div><a class="yt-link" href="https://www.youtube.com/watch?v=WeCyPErNDxo" target="_blank">▶ Ver técnica</a></div></div>
+          <div class="ex-row"><div class="ex-num">6</div><div><div class="ex-name">Pallof press</div><div class="ex-params"><span class="ep hi">3 x 10</span></div><a class="yt-link" href="https://www.youtube.com/watch?v=9tVXyuVc77k" target="_blank">▶ Ver técnica</a></div></div>
+          <div class="ex-row"><div class="ex-num">7</div><div><div class="ex-name">Plancha lateral</div><div class="ex-params"><span class="ep hi">3 x 30"</span></div><a class="yt-link" href="https://www.youtube.com/watch?v=3iTX7S0kONg" target="_blank">▶ Ver técnica</a></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEMANA 2 -->
+  <div class="week-card" id="wc-2">
+    <div class="week-top" onclick="togW(2)">
+      <div class="week-icon">S2</div>
+      <div class="week-info">
+        <div class="week-title">Semana 2 · 12–18 oct — Afinar</div>
+        <div class="week-meta"><span class="wm">Tempo 2 x 10'</span><span class="wm rpe">largo 45'</span></div>
+      </div>
+      <div class="week-chev" id="wchev-2">▾</div>
+    </div>
+    <div class="week-body" id="wbody-2">
+
+      <div class="alert ao"><span>📉</span><div><strong>Qué cambia</strong>Baja el volumen pero el ritmo se mantiene. Menos kilómetros, misma calidad: eso es lo que hace que llegues con piernas frescas y sin perder sensaciones.</div></div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('2R')">
+          <div class="block-icon bi-Cardio">🏃‍♀️</div>
+          <div class="block-info"><div class="block-title">Carrera — D1 / D3 / D6</div><div class="block-meta"><span class="bmeta bm-t">3 salidas</span></div></div>
+          <div class="chev" id="chev-2R">▾</div>
+        </div>
+        <div class="block-body" id="body-2R">
+          <div class="ex-row"><div class="ex-num">D1</div><div><div class="ex-name">Rodaje suave</div><div class="ex-note">35' muy cómodo.</div></div></div>
+          <div class="ex-row"><div class="ex-num">D3</div><div><div class="ex-name">Tempo a ritmo de carrera</div><div class="ex-note">Calentamiento 15' + 2 x 10' a 5'18"/km, con 2' de trote suave entre medias + 10' de vuelta a la calma. Aquí tienes que sentir que vas cómoda y con control, no que estás sufriendo.</div></div></div>
+          <div class="ex-row"><div class="ex-num">D6</div><div><div class="ex-name">Rodaje suave con avisos</div><div class="ex-note">45' tranquilos, y a mitad metes 4 aceleraciones de 1' un poco más vivas, con 1' de trote entre ellas. Es solo para no perder chispa.</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bB">
+        <div class="block-top" onclick="tog('2H')">
+          <div class="block-icon bi-B">🔥</div>
+          <div class="block-info"><div class="block-title">HIIT — martes y jueves</div><div class="block-meta"><span class="bmeta bm-t">El Llano · al 70%</span></div></div>
+          <div class="chev" id="chev-2H">▾</div>
+        </div>
+        <div class="block-body" id="body-2H">
+          <div class="ex-note" style="padding:10px 0;">Martes y jueves en El Llano, pero esta semana no vas a tope: al 70%, sin ejercicios nuevos que te dejen agujetas. Queremos moverte, no fatigarte. Y el martes, ojo, que el miércoles tienes el tempo.</div>
+        </div>
+      </div>
+
+      <div class="block-card bA">
+        <div class="block-top" onclick="tog('2F')">
+          <div class="block-icon bi-A">💪</div>
+          <div class="block-info"><div class="block-title">Fuerza — sesión de gimnasio (reducida)</div><div class="block-meta"><span class="bmeta bm-t">~30 min</span><span class="bmeta bm-rpe">suave</span></div></div>
+          <div class="chev" id="chev-2F">▾</div>
+        </div>
+        <div class="block-body" id="body-2F">
+          <div class="alert ao"><span>💡</span><div>Menos series y peso más ligero que la semana pasada. Termina cada serie sintiendo que podrías hacer alguna más.</div></div>
+          <div class="ex-row"><div class="ex-num">1</div><div><div class="ex-name">Bulgarian split squat</div><div class="ex-params"><span class="ep hi">2 x 8/8</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div><div class="ex-name">Peso muerto unilateral</div><div class="ex-params"><span class="ep hi">2 x 8/8</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div><div class="ex-name">Hip thrust</div><div class="ex-params"><span class="ep hi">2 x 8</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">4</div><div><div class="ex-name">Remo unilateral</div><div class="ex-params"><span class="ep hi">2 x 10</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">5</div><div><div class="ex-name">Pallof press</div><div class="ex-params"><span class="ep hi">2 x 10</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">6</div><div><div class="ex-name">Plancha lateral</div><div class="ex-params"><span class="ep hi">2 x 30"</span></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEMANA 3 -->
+  <div class="week-card" id="wc-3">
+    <div class="week-top" onclick="togW(3)">
+      <div class="week-icon">S3</div>
+      <div class="week-info">
+        <div class="week-title">Semana 3 · 19–25 oct — Semana de carrera</div>
+        <div class="week-meta"><span class="wm">Activación</span><span class="wm rpe">Domingo: 10K Salinas</span></div>
+      </div>
+      <div class="week-chev" id="wchev-3">▾</div>
+    </div>
+    <div class="week-body" id="wbody-3">
+
+      <div class="alert al"><span>🏁</span><div><strong>Esta semana no se entrena, se afina</strong>Todo lo que hagas es corto y con buenas sensaciones. Si dudas entre hacer un poco más o un poco menos, haz menos. Tu forma física de esta semana ya no cambia: lo único que puedes hacer es cansarte o llegar fresca.</div></div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('3R')">
+          <div class="block-icon bi-Cardio">🏃‍♀️</div>
+          <div class="block-info"><div class="block-title">Carrera — activación</div><div class="block-meta"><span class="bmeta bm-t">3 salidas cortas</span></div></div>
+          <div class="chev" id="chev-3R">▾</div>
+        </div>
+        <div class="block-body" id="body-3R">
+          <div class="ex-row"><div class="ex-num">D1</div><div><div class="ex-name">Rodaje suave</div><div class="ex-note">30' cómodo. Al final, 4 rectas de 20" un poco más vivas, con trote suave para recuperar entre ellas.</div></div></div>
+          <div class="ex-row"><div class="ex-num">D3</div><div><div class="ex-name">Últimos toques a ritmo</div><div class="ex-note">Calentamiento 15' + 3 x 400m a 5'18"/km (2'07" cada una), con 90" de trote entre medias + 10' suaves. Tienen que salir fáciles: si terminas con ganas de más, perfecto.</div></div></div>
+          <div class="ex-row"><div class="ex-num">D6</div><div><div class="ex-name">Sacudida del sábado</div><div class="ex-note">20' de trote muy suave + 4 rectas de 20". Preparas las piernas para el domingo y ya está.</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bB">
+        <div class="block-top" onclick="tog('3H')">
+          <div class="block-icon bi-B">🔥</div>
+          <div class="block-info"><div class="block-title">HIIT — solo el martes</div><div class="block-meta"><span class="bmeta bm-t">El Llano · suave</span></div></div>
+          <div class="chev" id="chev-3H">▾</div>
+        </div>
+        <div class="block-body" id="body-3H">
+          <div class="ex-note" style="padding:10px 0;">El martes vas a El Llano, pero cortito y al 60-70%, sin saltos ni nada que te deje agujetas. El jueves te lo saltas: a tres días de la carrera solo puede darte fatiga. Cámbialo por 15' de movilidad y estiramientos suaves.</div>
+        </div>
+      </div>
+
+      <div class="block-card bA">
+        <div class="block-top" onclick="tog('3F')">
+          <div class="block-icon bi-A">💪</div>
+          <div class="block-info"><div class="block-title">Fuerza — solo activación</div><div class="block-meta"><span class="bmeta bm-t">15-20 min</span><span class="bmeta bm-rpe">muy suave</span></div></div>
+          <div class="chev" id="chev-3F">▾</div>
+        </div>
+        <div class="block-body" id="body-3F">
+          <div class="alert ao"><span>💡</span><div>Hazla el lunes, nunca después. Peso ligero, sin llegar cerca del límite.</div></div>
+          <div class="ex-row"><div class="ex-num">1</div><div><div class="ex-name">Bulgarian split squat (ligero)</div><div class="ex-params"><span class="ep hi">2 x 6/6</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div><div class="ex-name">Hip thrust (ligero)</div><div class="ex-params"><span class="ep hi">2 x 8</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div><div class="ex-name">Bird dog</div><div class="ex-params"><span class="ep hi">2 x 8/8</span></div><a class="yt-link" href="https://www.youtube.com/watch?v=Rn0SFzJzhQc" target="_blank">▶ Ver técnica</a></div></div>
+          <div class="ex-row"><div class="ex-num">4</div><div><div class="ex-name">Plancha lateral</div><div class="ex-params"><span class="ep hi">2 x 20"</span></div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bD">
+        <div class="block-top" onclick="tog('3D')">
+          <div class="block-icon bi-D">🏅</div>
+          <div class="block-info"><div class="block-title">Domingo 25 — 10K Salinas</div><div class="block-meta"><span class="bmeta bm-t">Tu segundo dorsal</span></div></div>
+          <div class="chev" id="chev-3D">▾</div>
+        </div>
+        <div class="block-body" id="body-3D">
+          <div class="alert al"><span>🎯</span><div><strong>Plan de carrera</strong>A 5'18"/km, los 10K salen en unos 53 minutos. Es tu referencia, no una obligación: si el día viene bueno, la carrera te lo dirá en el km 8.</div></div>
+          <table class="tbl">
+            <tr><th>Tramo</th><th>Ritmo</th><th>Cómo</th></tr>
+            <tr><td class="k">Km 1</td><td>5'22"</td><td>Salida contenida. Aquí se gana la carrera, no se pierde.</td></tr>
+            <tr><td class="k">Km 2-8</td><td>5'18"</td><td>Ritmo de tus series. Cómoda, con control.</td></tr>
+            <tr><td class="k">Km 9-10</td><td>5'15" o mejor</td><td>Si llegas con margen, aquí se aprieta.</td></tr>
+          </table>
+          <div class="ex-note" style="padding-top:12px;">• Calentamiento: 10' de trote suave + 3 rectas de 20" antes de la salida.<br>• Desayuno y ropa: lo de siempre, nada nuevo el día de la carrera.<br>• Si la salida te arrastra y vas a 5'05", no lo persigas: deja pasar a la gente y ve a tu ritmo.<br>• Y disfruta: llevas un año trabajando para este día.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEMANA 4 -->
+  <div class="week-card" id="wc-4">
+    <div class="week-top" onclick="togW(4)">
+      <div class="week-icon">S4</div>
+      <div class="week-info">
+        <div class="week-title">Semana 4 · 26–31 oct — Recuperación</div>
+        <div class="week-meta"><span class="wm">Sin exigencia</span><span class="wm rpe">Rodajes 30-35'</span></div>
+      </div>
+      <div class="week-chev" id="wchev-4">▾</div>
+    </div>
+    <div class="week-body" id="wbody-4">
+
+      <div class="alert at"><span>🌊</span><div><strong>Después de la carrera, descansar también es entrenar</strong>Tu cuerpo necesita unos días para asimilar el esfuerzo. Esta semana solo movimiento suave y ganas de volver.</div></div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('4R')">
+          <div class="block-icon bi-Cardio">🏃‍♀️</div>
+          <div class="block-info"><div class="block-title">Carrera — recuperación</div><div class="block-meta"><span class="bmeta bm-t">2 salidas</span></div></div>
+          <div class="chev" id="chev-4R">▾</div>
+        </div>
+        <div class="block-body" id="body-4R">
+          <div class="ex-row"><div class="ex-num">D1</div><div><div class="ex-name">Descanso o paseo</div><div class="ex-note">El lunes tras la carrera, nada de correr. Paseo, bici suave o movilidad si te apetece.</div></div></div>
+          <div class="ex-row"><div class="ex-num">D3</div><div><div class="ex-name">Rodaje muy suave</div><div class="ex-note">30' sin mirar el reloj. Si las piernas siguen cargadas, lo dejas en 20'.</div></div></div>
+          <div class="ex-row"><div class="ex-num">D6</div><div><div class="ex-name">Rodaje suave</div><div class="ex-note">35' a ritmo cómodo, disfrutando.</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bB">
+        <div class="block-top" onclick="tog('4H')">
+          <div class="block-icon bi-B">🔥</div>
+          <div class="block-info"><div class="block-title">HIIT — solo el jueves</div><div class="block-meta"><span class="bmeta bm-t">El Llano · vuelta suave</span></div></div>
+          <div class="chev" id="chev-4H">▾</div>
+        </div>
+        <div class="block-body" id="body-4H">
+          <div class="ex-note" style="padding:10px 0;">El martes, dos días después de la carrera, descansa o paseo. El jueves vuelves a El Llano, pero a media máquina y sin buscar tu mejor marca.</div>
+        </div>
+      </div>
+
+      <div class="block-card bA">
+        <div class="block-top" onclick="tog('4F')">
+          <div class="block-icon bi-A">💪</div>
+          <div class="block-info"><div class="block-title">Fuerza — vuelta suave</div><div class="block-meta"><span class="bmeta bm-t">~30 min</span><span class="bmeta bm-rpe">suave</span></div></div>
+          <div class="chev" id="chev-4F">▾</div>
+        </div>
+        <div class="block-body" id="body-4F">
+          <div class="ex-row"><div class="ex-num">1</div><div><div class="ex-name">Hip thrust</div><div class="ex-params"><span class="ep hi">2 x 10</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div><div class="ex-name">Remo unilateral</div><div class="ex-params"><span class="ep hi">2 x 10</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div><div class="ex-name">Dead bug</div><div class="ex-params"><span class="ep hi">2 x 10</span></div><a class="yt-link" href="https://www.youtube.com/watch?v=OUVY99ez0k0" target="_blank">▶ Ver técnica</a></div></div>
+          <div class="ex-row"><div class="ex-num">4</div><div><div class="ex-name">Bird dog</div><div class="ex-params"><span class="ep hi">2 x 10/10</span></div></div></div>
+          <div class="ex-row"><div class="ex-num">5</div><div><div class="ex-name">Plancha lateral</div><div class="ex-params"><span class="ep hi">2 x 25"</span></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="note" style="margin-top:20px;">
+  <div class="note-card" style="text-align:center;border-color:var(--teal-b);background:var(--teal-dim);">
+    <div class="note-text" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;line-height:1.6;">Anahy, el trabajo ya está hecho: un año de constancia y de mejorar semana tras semana, y se nota. Ahora solo toca confiar en todo lo que has construido, salir con cabeza y disfrutar cada kilómetro de Salinas. ¡Vamos a por tu segundo dorsal! 🏃‍♀️❤️</div>
+  </div>
+</div>
+
+<div class="footer-note">Un abrazo, Nuria — Reevoluciona Training</div>
+
+<script>
+  function tog(id){
+    const b=document.getElementById('body-'+id);
+    const c=document.getElementById('chev-'+id);
+    if(!b)return;
+    b.classList.toggle('open');
+    if(c)c.classList.toggle('open');
+  }
+  function togW(id){
+    const b=document.getElementById('wbody-'+id);
+    const c=document.getElementById('wchev-'+id);
+    if(!b)return;
+    b.classList.toggle('open');
+    if(c)c.classList.toggle('open');
+  }
+  document.addEventListener('DOMContentLoaded',()=>togW(1));
+</script>
+</body>
+</html>
