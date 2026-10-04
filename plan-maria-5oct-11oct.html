@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana María — 5-11 oct</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#09090F;--surface:#111118;--surface2:#18181F;--surface3:#20202A;
+    --border:#2A2A36;--border2:#353545;
+    --lime:#C6F135;--lime-dim:rgba(198,241,53,0.09);--lime-b:rgba(198,241,53,0.30);
+    --orange:#FF6B35;--orange-dim:rgba(255,107,53,0.10);--orange-b:rgba(255,107,53,0.32);
+    --blue:#5B9EF4;--blue-dim:rgba(91,158,244,0.10);--blue-b:rgba(91,158,244,0.28);
+    --violet:#9B79F5;--violet-dim:rgba(155,121,245,0.10);--violet-b:rgba(155,121,245,0.28);
+    --gold:#F0B429;--gold-dim:rgba(240,180,41,0.10);--gold-b:rgba(240,180,41,0.28);
+    --teal:#3ECFB2;--teal-dim:rgba(62,207,178,0.10);--teal-b:rgba(62,207,178,0.28);
+    --red:#F45B69;--red-dim:rgba(244,91,105,0.10);--red-b:rgba(244,91,105,0.32);
+    --pink:#FF36AB;--pink-dim:rgba(255,54,171,0.10);--pink-b:rgba(255,54,171,0.35);
+    --text:#EAEAF5;--muted:#72728A;--dim:#3A3A50;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;padding-bottom:70px;}
+
+  .hero{padding:28px 20px 20px;max-width:520px;margin:0 auto;text-align:center;position:relative;}
+  .hero::before{content:'';position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;height:220px;background:radial-gradient(ellipse at 50% -10%,rgba(155,121,245,0.14) 0%,transparent 65%);pointer-events:none;z-index:0;}
+  .brandmark{position:relative;z-index:1;display:inline-flex;flex-direction:column;align-items:center;margin-bottom:18px;}
+  .brandmark-row{display:flex;align-items:center;gap:4px;}
+  .brand-word{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;color:#fff;}
+  .brand-word sup{font-size:10px;position:relative;top:-12px;}
+  .brand-training{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.4em;color:#fff;margin-top:2px;margin-left:.4em;}
+  .brand-chevrons{display:flex;align-items:center;gap:8px;margin-top:7px;}
+  .chevron{width:48px;height:10px;}
+  .chevron-pink{background:var(--pink);clip-path:polygon(0 0,80% 0,100% 50%,80% 100%,0 100%,20% 50%);}
+  .chevron-teal{background:var(--teal);clip-path:polygon(20% 0,100% 0,80% 50%,100% 100%,20% 100%,0 50%);}
+  .brand-tagline{font-family:'Space Grotesk',sans-serif;font-size:8px;font-weight:600;letter-spacing:.2em;color:var(--muted);white-space:nowrap;}
+  .hero-title{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.25;margin-bottom:6px;position:relative;z-index:1;}
+  .hero-title span{color:var(--violet);}
+  .hero-sub{font-size:12.5px;color:var(--muted);position:relative;z-index:1;}
+
+  .note{max-width:520px;margin:16px auto 0;padding:0 20px;}
+  .note-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+  .note-title{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;margin-bottom:6px;letter-spacing:.05em;text-transform:uppercase;}
+  .note-text{font-size:12.5px;color:var(--text);line-height:1.65;}
+  .note.info .note-card{border-color:var(--blue-b);background:var(--blue-dim);}
+  .note.info .note-title{color:var(--blue);}
+  .note.race .note-card{border-color:var(--pink-b);background:var(--pink-dim);}
+  .note.race .note-title{color:var(--pink);}
+
+  .blocks{max-width:520px;margin:18px auto 0;padding:0 20px;}
+
+  .block-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;margin-top:10px;overflow:hidden;}
+  .block-card.bCardio{border-color:var(--teal-b);}
+  .block-card.bHybrid{border-color:var(--orange-b);}
+  .block-card.bRace{border-color:var(--pink-b);}
+  .block-top{display:flex;align-items:center;padding:12px 14px;gap:10px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .block-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+  .bi-Cardio{background:var(--teal-dim);}
+  .bi-Hybrid{background:var(--orange-dim);}
+  .bi-Race{background:var(--pink-dim);}
+  .block-info{flex:1;min-width:0;}
+  .block-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+  .block-meta{display:flex;flex-wrap:wrap;gap:4px;}
+  .bmeta{font-family:'Space Grotesk',monospace;font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;}
+  .bm-t{background:var(--surface3);color:var(--muted);}
+  .bm-rpe{background:var(--orange-dim);color:var(--orange);}
+  .chev{color:var(--dim);font-size:11px;transition:transform .2s;flex-shrink:0;}
+  .chev.open{transform:rotate(180deg);}
+  .block-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border);}
+  .block-body.open{display:block;}
+
+  .ex-row{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--border);}
+  .ex-row:last-child{border-bottom:none;}
+  .ex-num{font-family:'Space Grotesk',monospace;font-size:10px;color:var(--dim);min-width:16px;padding-top:2px;flex-shrink:0;}
+  .ex-name{font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:3px;}
+  .ex-params{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;}
+  .ep{font-family:'Space Grotesk',monospace;font-size:9px;font-weight:600;background:var(--surface3);border:1px solid var(--border2);color:var(--muted);padding:2px 6px;border-radius:3px;}
+  .ep.hy{background:var(--orange-dim);border-color:var(--orange-b);color:var(--orange);}
+  .ex-note{font-size:11px;color:var(--muted);line-height:1.45;}
+  .yt-link{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--teal);text-decoration:none;border:1px solid var(--teal-b);background:var(--teal-dim);padding:2px 7px;border-radius:4px;margin-top:5px;font-family:'Space Grotesk',sans-serif;font-weight:600;}
+
+  .alert{border-radius:9px;padding:10px 12px;margin-top:10px;display:flex;gap:8px;font-size:11.5px;line-height:1.5;color:var(--text);}
+  .al{background:var(--lime-dim);border:1px solid var(--lime-b);}
+  .ao{background:var(--orange-dim);border:1px solid var(--orange-b);}
+  .as{background:var(--blue-dim);border:1px solid var(--blue-b);}
+  .ap{background:var(--pink-dim);border:1px solid var(--pink-b);}
+  .alert strong{font-family:'Space Grotesk',sans-serif;font-size:10.5px;font-weight:700;display:block;margin-bottom:2px;}
+  .al strong{color:var(--lime);}
+  .ao strong{color:var(--orange);}
+  .as strong{color:var(--blue);}
+  .ap strong{color:var(--pink);}
+
+  .hz-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:14px;}
+  .hz-head{padding:13px 16px;border-bottom:1px solid var(--border);}
+  .hz-title{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;}
+  .hz-row{display:grid;grid-template-columns:36px 90px 1fr;align-items:center;gap:8px;padding:9px 16px;border-bottom:1px solid var(--border);border-left:4px solid var(--zc);}
+  .hz-row:last-child{border-bottom:none;}
+  .hz-z{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:12.5px;color:var(--zc);}
+  .hz-bpm{font-family:'Space Grotesk',monospace;font-size:11.5px;font-weight:700;color:var(--text);}
+  .hz-desc{font-size:11.5px;color:var(--muted);}
+
+  .footer-note{max-width:520px;margin:20px auto 30px;padding:0 20px;text-align:center;font-size:11px;color:var(--dim);}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="brandmark">
+    <div class="brandmark-row">
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+        <circle cx="58" cy="16" r="11" fill="#3ECFB2"/>
+        <path d="M50 30 L62 52 L44 58 L56 80 L38 98 M62 52 L85 62 M44 58 L20 70" stroke="#3ECFB2" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-word">EEVOLUCIONA<sup>®</sup></span>
+    </div>
+    <div class="brand-training">TRAINING</div>
+    <div class="brand-chevrons">
+      <div class="chevron chevron-pink"></div>
+      <span class="brand-tagline">ONLINE COACHING</span>
+      <div class="chevron chevron-teal"></div>
+    </div>
+  </div>
+  <div class="hero-title">Semana de <span>María</span></div>
+  <div class="hero-sub">5 — 11 octubre · Bajada de carga + Abeduriu Nocturna el sábado</div>
+</div>
+
+<div class="note">
+  <div class="note-card">
+    <div class="note-title" style="color:var(--violet);">Esta semana toca bajar carga</div>
+    <div class="note-text">El sábado tienes el Abeduriu Nocturna, así que esta semana no sumamos más fatiga — la soltamos. Todo lo que viene es corto, controlado y con las piernas frescas como prioridad número uno. Nada de buscar el límite hasta la propia carrera.</div>
+  </div>
+</div>
+
+<div class="note race">
+  <div class="note-card">
+    <div class="note-title">🏁 Sábado — Abeduriu Nocturna (Siroko Night Trail)</div>
+    <div class="note-text">El Entrego · 7 km / 450 m D+ · nocturna. Es tu rodaje fuerte antes de Sobrescobio, no hace falta gestionar el ritmo con miedo — corre con cabeza pero disfrútala.</div>
+  </div>
+</div>
+
+<div class="note info">
+  <div class="note-card">
+    <div class="note-title">💓 Referencia de frecuencia cardíaca</div>
+    <div class="note-text">Zonas Z1–Z5 (112–178 ppm) de siempre.</div>
+  </div>
+</div>
+
+<div class="blocks">
+
+  <div class="alert al"><span>😴</span><div><strong>Lunes — Descanso</strong>Libre del todo.</div></div>
+
+  <div class="block-card bHybrid">
+    <div class="block-top" onclick="tog('D1')">
+      <div class="block-icon bi-Hybrid">⚡</div>
+      <div class="block-info"><div class="block-title">Martes — Gym: activación corta (EMOM 18')</div><div class="block-meta"><span class="bmeta bm-t">KB · Remo</span><span class="bmeta bm-t">suave-moderado</span></div></div>
+      <div class="chev" id="chev-D1">▾</div>
+    </div>
+    <div class="block-body" id="body-D1">
+      <div class="ex-note" style="padding:8px 0 12px;">EMOM de 18' rotando cada minuto entre 3 estaciones (6 rondas de cada una). Ritmo vivo pero controlado — no buscamos fallo, solo mantener el cuerpo activado.</div>
+      <div class="ex-row"><div class="ex-num">1</div><div>
+        <div class="ex-name">Kettlebell swing</div>
+        <div class="ex-params"><span class="ep hy">12 reps</span></div>
+        <a class="yt-link" href="https://www.youtube.com/watch?v=LEeoa362S7Y" target="_blank">▶ Ver técnica</a>
+      </div></div>
+      <div class="ex-row"><div class="ex-num">2</div><div>
+        <div class="ex-name">Remo ergómetro</div>
+        <div class="ex-params"><span class="ep hy">150m</span></div>
+        <a class="yt-link" href="https://www.youtube.com/watch?v=vj8MVU2UiEk" target="_blank">▶ Ver técnica</a>
+      </div></div>
+      <div class="ex-row"><div class="ex-num">3</div><div>
+        <div class="ex-name">Sentadilla goblet (kettlebell)</div>
+        <div class="ex-params"><span class="ep hy">10 reps</span></div>
+        <a class="yt-link" href="https://www.youtube.com/watch?v=VCwKVLow4-s" target="_blank">▶ Ver técnica</a>
+      </div></div>
+      <div class="ex-note" style="padding-top:8px;">Cierre — 10' de core:</div>
+      <div class="ex-row"><div class="ex-num">4</div><div>
+        <div class="ex-name">Plancha lateral</div>
+        <div class="ex-params"><span class="ep hy">3 x 30"/30"</span></div>
+        <a class="yt-link" href="https://www.youtube.com/watch?v=3iTX7S0kONg" target="_blank">▶ Ver técnica</a>
+      </div></div>
+      <div class="ex-row"><div class="ex-num">5</div><div>
+        <div class="ex-name">Dead bug</div>
+        <div class="ex-params"><span class="ep hy">3 x 10/10</span></div>
+        <a class="yt-link" href="https://www.youtube.com/watch?v=OUVY99ez0k0" target="_blank">▶ Ver técnica</a>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="block-card bCardio">
+    <div class="block-top" onclick="tog('D2')">
+      <div class="block-icon bi-Cardio">🏃‍♀️</div>
+      <div class="block-info"><div class="block-title">Miércoles — Running: progresiones cortas a ritmo de carrera</div><div class="block-meta"><span class="bmeta bm-t">~25 min</span></div></div>
+      <div class="chev" id="chev-D2">▾</div>
+    </div>
+    <div class="block-body" id="body-D2">
+      <div class="ex-row"><div><div class="ex-name">Calentamiento</div><div class="ex-note">10' trote suave Z1-Z2 en llano.</div></div></div>
+      <div class="ex-row"><div><div class="ex-name">Progresiones</div><div class="ex-note">6 x 1' a ritmo vivo (Z3-Z4, sensación de carrera, sin apretar al límite) con 1' trote muy suave como recuperación entre cada una.</div></div></div>
+      <div class="ex-row"><div><div class="ex-name">Vuelta a la calma</div><div class="ex-note">5' trote muy suave.</div></div></div>
+    </div>
+  </div>
+
+  <div class="alert al"><span>😴</span><div><strong>Jueves — Descanso</strong>Libre del todo. Con la carrera tan cerca, piernas frescas pesa más que sumar un día más de carga.</div></div>
+
+  <div class="block-card bCardio">
+    <div class="block-top" onclick="tog('D4')">
+      <div class="block-icon bi-Cardio">🏃‍♀️</div>
+      <div class="block-info"><div class="block-title">Viernes — Shakeout pre-carrera</div><div class="block-meta"><span class="bmeta bm-t">~20 min</span></div></div>
+      <div class="chev" id="chev-D4">▾</div>
+    </div>
+    <div class="block-body" id="body-D4">
+      <div class="ex-row"><div><div class="ex-name">Trote muy suave</div><div class="ex-note">15' en Z1-Z2, sensación completamente cómoda.</div></div></div>
+      <div class="ex-row"><div><div class="ex-name">Progresiones cortas</div><div class="ex-note">4 x 20" a ritmo vivo (no al máximo, solo activar la pierna), con paseo como recuperación entre cada una.</div></div></div>
+      <div class="ex-note" style="padding-top:8px;">Objetivo de hoy: sentir las piernas ligeras y despiertas, no cansadas. Si algo tira o molesta, corta y descansa — mañana es el día que importa.</div>
+    </div>
+  </div>
+
+  <div class="block-card bRace">
+    <div class="block-top" onclick="tog('D5')">
+      <div class="block-icon bi-Race">🏁</div>
+      <div class="block-info"><div class="block-title">Sábado — Abeduriu Nocturna</div><div class="block-meta"><span class="bmeta bm-t">El Entrego · 7km / 450m D+</span></div></div>
+      <div class="chev" id="chev-D5">▾</div>
+    </div>
+    <div class="block-body" id="body-D5">
+      <div class="ex-row"><div><div class="ex-name">Calentamiento pre-carrera</div><div class="ex-note">10-12' trote suave Z1-Z2 + un par de progresiones cortas 15-20" antes de la salida, para llegar a la línea con el cuerpo ya activado.</div></div></div>
+      <div class="ex-row"><div><div class="ex-name">Durante la carrera</div><div class="ex-note">En las subidas, deja que la frecuencia suba a Z4-Z5 con naturalidad — es corta (7km), así que no hace falta racionar como en una carrera larga. En los tramos llanos o de bajada, aprovecha para recuperar un poco el pulso.</div></div></div>
+      <div class="ex-row"><div><div class="ex-name">Nocturna</div><div class="ex-note">Frontal bien cargado y probado antes de salir — el terreno técnico de noche exige más atención al pisar, sobre todo en las bajadas.</div></div></div>
+      <div class="ex-row"><div><div class="ex-name">Después de cruzar meta</div><div class="ex-note">5-10' de trote muy suave o caminar si el cuerpo lo pide, y estirar con calma. Esta carrera es rodaje fuerte, no el objetivo — el cuerpo tiene que llegar bien a Sobrescobio el 25.</div></div></div>
+    </div>
+  </div>
+
+  <div class="alert as"><span>🌴</span><div><strong>Domingo — Recuperación</strong>Sin estructurar. Si el cuerpo pide quietud total, descanso completo; si pide moverse, un paseo o trote muy suave sin reloj ni objetivo. Las piernas se ganan el domingo libre después de la carrera.</div></div>
+
+</div>
+
+<div class="hz-card">
+  <div class="hz-head">
+    <div class="hz-title">Zonas de FC — María</div>
+  </div>
+  <div class="hz-row" style="--zc:var(--blue)">
+    <div class="hz-z">Z1</div><div class="hz-bpm">112-125</div><div class="hz-desc">Recuperación</div>
+  </div>
+  <div class="hz-row" style="--zc:var(--teal)">
+    <div class="hz-z">Z2</div><div class="hz-bpm">125-138</div><div class="hz-desc">Resistencia aeróbica</div>
+  </div>
+  <div class="hz-row" style="--zc:var(--gold)">
+    <div class="hz-z">Z3</div><div class="hz-bpm">138-152</div><div class="hz-desc">Ritmo sostenible</div>
+  </div>
+  <div class="hz-row" style="--zc:var(--orange)">
+    <div class="hz-z">Z4</div><div class="hz-bpm">152-165</div><div class="hz-desc">Umbral</div>
+  </div>
+  <div class="hz-row" style="--zc:var(--red)">
+    <div class="hz-z">Z5</div><div class="hz-bpm">165-178</div><div class="hz-desc">Máximo</div>
+  </div>
+</div>
+
+<div class="footer-note">A disfrutar la carrera 🖤</div>
+
+<script>
+  function tog(id){
+    const b=document.getElementById('body-'+id);
+    const c=document.getElementById('chev-'+id);
+    if(!b)return;
+    b.classList.toggle('open');
+    if(c)c.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
