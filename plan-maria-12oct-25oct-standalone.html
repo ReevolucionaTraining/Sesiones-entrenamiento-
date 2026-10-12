@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan María — 12 al 25 oct</title>
+<style>
+  :root{
+    --bg:#09090F;--surface:#111118;--surface2:#18181F;--surface3:#20202A;
+    --border:#2A2A36;--border2:#353545;
+    --lime:#C6F135;--lime-dim:rgba(198,241,53,0.09);--lime-b:rgba(198,241,53,0.30);
+    --orange:#FF6B35;--orange-dim:rgba(255,107,53,0.10);--orange-b:rgba(255,107,53,0.32);
+    --blue:#5B9EF4;--blue-dim:rgba(91,158,244,0.10);--blue-b:rgba(91,158,244,0.28);
+    --violet:#9B79F5;--violet-dim:rgba(155,121,245,0.10);--violet-b:rgba(155,121,245,0.28);
+    --gold:#F0B429;--gold-dim:rgba(240,180,41,0.10);--gold-b:rgba(240,180,41,0.28);
+    --teal:#3ECFB2;--teal-dim:rgba(62,207,178,0.10);--teal-b:rgba(62,207,178,0.28);
+    --red:#F45B69;--red-dim:rgba(244,91,105,0.10);--red-b:rgba(244,91,105,0.32);
+    --pink:#FF36AB;--pink-dim:rgba(255,54,171,0.10);--pink-b:rgba(255,54,171,0.35);
+    --text:#EAEAF5;--muted:#8A8AA3;--dim:#4A4A60;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;padding-bottom:70px;-webkit-text-size-adjust:100%;}
+
+  .hero{padding:28px 20px 20px;max-width:520px;margin:0 auto;text-align:center;}
+  .brandmark{display:inline-flex;flex-direction:column;align-items:center;margin-bottom:18px;}
+  .brandmark-row{display:flex;align-items:center;gap:4px;}
+  .brand-word{font-size:26px;font-weight:800;letter-spacing:-.02em;color:#fff;}
+  .brand-word sup{font-size:10px;position:relative;top:-12px;}
+  .brand-training{font-size:13px;font-weight:600;letter-spacing:.4em;color:#fff;margin-top:2px;margin-left:.4em;}
+  .brand-chevrons{display:flex;align-items:center;gap:8px;margin-top:7px;}
+  .chevron{width:48px;height:10px;}
+  .chevron-pink{background:var(--pink);clip-path:polygon(0 0,80% 0,100% 50%,80% 100%,0 100%,20% 50%);}
+  .chevron-teal{background:var(--teal);clip-path:polygon(20% 0,100% 0,80% 50%,100% 100%,20% 100%,0 50%);}
+  .brand-tagline{font-size:8px;font-weight:600;letter-spacing:.2em;color:var(--muted);white-space:nowrap;}
+  .hero-title{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.25;margin-bottom:6px;}
+  .hero-title span{color:var(--violet);}
+  .hero-sub{font-size:12.5px;color:var(--muted);margin-bottom:16px;}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 4px;text-align:center;}
+  .stat-val{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--violet);line-height:1;margin-bottom:3px;}
+  .stat-label{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+
+  .note{max-width:520px;margin:14px auto 0;padding:0 20px;}
+  .note-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+  .note-title{font-size:12px;font-weight:700;margin-bottom:6px;letter-spacing:.05em;text-transform:uppercase;}
+  .note-text{font-size:12.5px;color:var(--text);line-height:1.65;}
+  .note.info .note-card{border-color:var(--blue-b);background:var(--blue-dim);}
+  .note.info .note-title{color:var(--blue);}
+  .note.race .note-card{border-color:var(--pink-b);background:var(--pink-dim);}
+  .note.race .note-title{color:var(--pink);}
+
+  .hz-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;max-width:520px;margin:14px auto 0;}
+  .hz-wrap{padding:0 20px;}
+  .hz-head{padding:12px 16px;border-bottom:1px solid var(--border);font-size:13px;font-weight:700;}
+  .hz-row{display:grid;grid-template-columns:34px 82px 1fr;align-items:center;gap:8px;padding:9px 16px;border-bottom:1px solid var(--border);border-left:4px solid var(--zc);}
+  .hz-row:last-child{border-bottom:none;}
+  .hz-z{font-weight:800;font-size:12.5px;color:var(--zc);}
+  .hz-bpm{font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--text);}
+  .hz-desc{font-size:11.5px;color:var(--muted);}
+
+  .blocks{max-width:520px;margin:18px auto 0;padding:0 20px;}
+
+  .week-card{background:var(--surface);border:1px solid var(--violet-b);border-radius:16px;margin-bottom:12px;overflow:hidden;}
+  .week-top{display:flex;align-items:center;padding:16px;gap:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .week-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:var(--violet-dim);font-weight:800;color:var(--violet);}
+  .week-info{flex:1;min-width:0;}
+  .week-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
+  .week-meta{display:flex;flex-wrap:wrap;gap:5px;}
+  .wm{font-family:var(--mono);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.03em;background:var(--surface2);color:var(--muted);}
+  .week-chev{color:var(--dim);font-size:12px;transition:transform .2s;flex-shrink:0;}
+  .week-chev.open{transform:rotate(180deg);}
+  .week-body{display:none;padding:0 14px 16px;border-top:1px solid var(--border);}
+  .week-body.open{display:block;}
+
+  .block-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;margin-top:10px;overflow:hidden;}
+  .block-card.bCardio{border-color:var(--teal-b);}
+  .block-card.bHybrid{border-color:var(--orange-b);}
+  .block-card.bRace{border-color:var(--pink-b);}
+  .block-top{display:flex;align-items:center;padding:12px 14px;gap:10px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .block-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+  .bi-Cardio{background:var(--teal-dim);}
+  .bi-Hybrid{background:var(--orange-dim);}
+  .bi-Race{background:var(--pink-dim);}
+  .block-info{flex:1;min-width:0;}
+  .block-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
+  .block-meta{display:flex;flex-wrap:wrap;gap:4px;}
+  .bmeta{font-family:var(--mono);font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;}
+  .bm-t{background:var(--surface3);color:var(--muted);}
+  .bm-rpe{background:var(--orange-dim);color:var(--orange);}
+  .bm-z{background:var(--teal-dim);color:var(--teal);}
+  .chev{color:var(--dim);font-size:11px;transition:transform .2s;flex-shrink:0;}
+  .chev.open{transform:rotate(180deg);}
+  .block-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border);}
+  .block-body.open{display:block;}
+
+  .ex-row{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--border);}
+  .ex-row:last-child{border-bottom:none;}
+  .ex-num{font-family:var(--mono);font-size:10px;color:var(--dim);min-width:16px;padding-top:2px;flex-shrink:0;}
+  .ex-name{font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:3px;}
+  .ex-params{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;}
+  .ep{font-family:var(--mono);font-size:9.5px;font-weight:600;background:var(--surface3);border:1px solid var(--border2);color:var(--muted);padding:2px 6px;border-radius:3px;}
+  .ep.hy{background:var(--orange-dim);border-color:var(--orange-b);color:var(--orange);}
+  .ex-note{font-size:11.5px;color:var(--muted);line-height:1.5;}
+  .yt-link{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;color:var(--pink);text-decoration:none;border:1px solid var(--pink-b);background:var(--pink-dim);padding:3px 8px;border-radius:4px;margin-top:5px;font-weight:600;}
+
+  .alert{border-radius:9px;padding:10px 12px;margin-top:10px;display:flex;gap:8px;font-size:11.5px;line-height:1.5;color:var(--text);}
+  .al{background:var(--lime-dim);border:1px solid var(--lime-b);}
+  .ao{background:var(--orange-dim);border:1px solid var(--orange-b);}
+  .as{background:var(--blue-dim);border:1px solid var(--blue-b);}
+  .at{background:var(--teal-dim);border:1px solid var(--teal-b);}
+  .alert strong{font-size:10.5px;font-weight:700;display:block;margin-bottom:2px;}
+  .al strong{color:var(--lime);}
+  .ao strong{color:var(--orange);}
+  .as strong{color:var(--blue);}
+  .at strong{color:var(--teal);}
+
+  .footer-note{max-width:520px;margin:20px auto 30px;padding:0 20px;text-align:center;font-size:12px;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="brandmark">
+    <div class="brandmark-row">
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+        <circle cx="58" cy="16" r="11" fill="#3ECFB2"/>
+        <path d="M50 30 L62 52 L44 58 L56 80 L38 98 M62 52 L85 62 M44 58 L20 70" stroke="#3ECFB2" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-word">EEVOLUCIONA<sup>®</sup></span>
+    </div>
+    <div class="brand-training">TRAINING</div>
+    <div class="brand-chevrons">
+      <div class="chevron chevron-pink"></div>
+      <span class="brand-tagline">ONLINE COACHING</span>
+      <div class="chevron chevron-teal"></div>
+    </div>
+  </div>
+  <div class="hero-title">Hacia <span>Sobrescobio</span></div>
+  <div class="hero-sub">12 — 25 octubre · Última carga + semana de carrera</div>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">2</div><div class="stat-label">Semanas</div></div>
+    <div class="stat"><div class="stat-val">4</div><div class="stat-label">Días/sem</div></div>
+    <div class="stat"><div class="stat-val">25 oct</div><div class="stat-label">Carrera</div></div>
+    <div class="stat"><div class="stat-val">1100</div><div class="stat-label">m D+</div></div>
+  </div>
+</div>
+
+<div class="note">
+  <div class="note-card">
+    <div class="note-title" style="color:var(--violet);">Cómo se reparten estas dos semanas</div>
+    <div class="note-text">El Abeduriu ya está en el bolsillo, así que esta semana es la última con algo de carga y la siguiente es la de carrera: todo corto, fresco y sin nada nuevo. De martes a viernes, Día 1 al 4 en el orden que te encaje. Lunes descanso, y el finde sin estructurar (salvo el domingo 25, que tienes cita).</div>
+  </div>
+</div>
+
+<div class="note info">
+  <div class="note-card">
+    <div class="note-title">💓 Referencia de frecuencia cardíaca</div>
+    <div class="note-text">En terreno de montaña manda el pulso, no el ritmo: Z2 en llano ronda 6:00 min/km, pero subiendo puede irse a 8-12 min/km o más. Si el pulso se dispara, camina fuerte: es lo que se hace en carrera.</div>
+  </div>
+</div>
+
+<div class="hz-wrap">
+  <div class="hz-card">
+    <div class="hz-head">Zonas de FC — María</div>
+    <div class="hz-row" style="--zc:var(--blue)"><div class="hz-z">Z1</div><div class="hz-bpm">112-125</div><div class="hz-desc">Recuperación</div></div>
+    <div class="hz-row" style="--zc:var(--teal)"><div class="hz-z">Z2</div><div class="hz-bpm">125-138</div><div class="hz-desc">Resistencia aeróbica</div></div>
+    <div class="hz-row" style="--zc:var(--gold)"><div class="hz-z">Z3</div><div class="hz-bpm">138-152</div><div class="hz-desc">Ritmo sostenible</div></div>
+    <div class="hz-row" style="--zc:var(--orange)"><div class="hz-z">Z4</div><div class="hz-bpm">152-165</div><div class="hz-desc">Umbral</div></div>
+    <div class="hz-row" style="--zc:var(--red)"><div class="hz-z">Z5</div><div class="hz-bpm">165-178</div><div class="hz-desc">Máximo</div></div>
+  </div>
+</div>
+
+<div class="blocks">
+
+  <!-- SEMANA 1 -->
+  <div class="week-card">
+    <div class="week-top" onclick="togW(1)">
+      <div class="week-icon">S1</div>
+      <div class="week-info">
+        <div class="week-title">Semana 1 (12–18 oct) — Última carga</div>
+        <div class="week-meta"><span class="wm">Gym x2</span><span class="wm">Running x2</span></div>
+      </div>
+      <div class="week-chev" id="wchev-1">▾</div>
+    </div>
+    <div class="week-body" id="wbody-1">
+
+      <div class="alert al"><span>😴</span><div><strong>Lunes — Descanso</strong>Libre del todo.</div></div>
+
+      <div class="alert at"><span>🎯</span><div><strong>Objetivo de la semana</strong>Mantener la forma sin acumular fatiga: queda justo el margen para una semana de carga moderada y otra de puesta a punto. Calidad antes que cantidad.</div></div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('1D1')">
+          <div class="block-icon bi-Cardio">⛰️</div>
+          <div class="block-info"><div class="block-title">Día 1 — Running: subir y bajar, sin series</div><div class="block-meta"><span class="bmeta bm-t">~50 min</span><span class="bmeta bm-rpe">RPE 5-6</span><span class="bmeta bm-z">Z2-Z3 · 125-152 ppm</span></div></div>
+          <div class="chev" id="chev-1D1">▾</div>
+        </div>
+        <div class="block-body" id="body-1D1">
+          <div class="ex-row"><div><div class="ex-name">Calentamiento</div><div class="ex-note">10' trote suave en Z1-Z2 (112-138 ppm) hasta llegar a tu zona de subir y bajar.</div></div></div>
+          <div class="ex-row"><div><div class="ex-name">Bloque principal — continuo, sin cronometrar nada</div><div class="ex-note">30-35' moviéndote por el terreno de subidas y bajadas como te pida el camino. Base en Z2 (125-138 ppm) y subes a Z3 (138-152 ppm) en las cuestas. Si el pulso pasa de Z4 subiendo, camina fuerte con brazos activos y recupera el control.</div></div></div>
+          <div class="ex-row"><div><div class="ex-name">Las bajadas son tu recuperación</div><div class="ex-note">Tras cada subida, ~60-90" trotando suave hasta que el pulso baje a Z2 antes de afrontar la siguiente. Pasos cortos, pies ligeros y mirada 3-4 metros por delante: la bajada es técnica, no un sprint.</div></div></div>
+          <div class="ex-row"><div><div class="ex-name">Vuelta a la calma</div><div class="ex-note">5-10' trote muy suave en llano, Z1 (112-125 ppm).</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bHybrid">
+        <div class="block-top" onclick="tog('1D2')">
+          <div class="block-icon bi-Hybrid">⚡</div>
+          <div class="block-info"><div class="block-title">Día 2 — Gym: E2MOM 24' fuerza unilateral</div><div class="block-meta"><span class="bmeta bm-t">Mancuernas · KB · Cajón · Remo</span><span class="bmeta bm-rpe">RPE 7</span><span class="bmeta bm-z">Z3-Z4 · 138-165 ppm</span></div></div>
+          <div class="chev" id="chev-1D2">▾</div>
+        </div>
+        <div class="block-body" id="body-1D2">
+          <div class="ex-note" style="padding:8px 0 12px;">E2MOM = cada 2 minutos empiezas una estación nueva: haces el trabajo y descansas lo que te sobre hasta el siguiente 2'. Son 4 estaciones que se repiten 3 veces (24' en total). Peso exigente pero con la técnica limpia, sin llegar al fallo.</div>
+          <div class="ex-row"><div class="ex-num">1</div><div>
+            <div class="ex-name">Bulgarian split squat con mancuernas</div>
+            <div class="ex-params"><span class="ep hy">8/8</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=hiLF_pF3EJM" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div>
+            <div class="ex-name">Remo ergómetro</div>
+            <div class="ex-params"><span class="ep hy">250m</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=vj8MVU2UiEk" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div>
+            <div class="ex-name">Peso muerto rumano a una pierna con KB</div>
+            <div class="ex-params"><span class="ep hy">8/8</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=wHMRxe9qZ84" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">4</div><div>
+            <div class="ex-name">Step-up alto en cajón</div>
+            <div class="ex-params"><span class="ep hy">10/10</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=7NXhn2EEHOk" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-note" style="padding-top:8px;">Cierre — 10' de core:</div>
+          <div class="ex-row"><div class="ex-num">5</div><div>
+            <div class="ex-name">Plancha lateral</div>
+            <div class="ex-params"><span class="ep hy">3 x 30"/30"</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=3iTX7S0kONg" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">6</div><div>
+            <div class="ex-name">Pallof press</div>
+            <div class="ex-params"><span class="ep hy">3 x 12/12</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=9tVXyuVc77k" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">7</div><div>
+            <div class="ex-name">Dead bug</div>
+            <div class="ex-params"><span class="ep hy">3 x 10/10</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=OUVY99ez0k0" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('1D3')">
+          <div class="block-icon bi-Cardio">🏃‍♀️</div>
+          <div class="block-info"><div class="block-title">Día 3 — Running: continua Z2 (asfalto)</div><div class="block-meta"><span class="bmeta bm-t">45 min</span><span class="bmeta bm-rpe">RPE 4</span><span class="bmeta bm-z">Z2 · 125-138 ppm</span></div></div>
+          <div class="chev" id="chev-1D3">▾</div>
+        </div>
+        <div class="block-body" id="body-1D3">
+          <div class="ex-row"><div><div class="ex-name">Rodaje continuo</div><div class="ex-note">45' en Z2 (125-138 ppm), en asfalto y en llano. Cómodo de verdad: tienes que poder hablar. Es el día de sumar base sin cansarte.</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bHybrid">
+        <div class="block-top" onclick="tog('1D4')">
+          <div class="block-icon bi-Hybrid">⚡</div>
+          <div class="block-info"><div class="block-title">Día 4 — Gym: AMRAP 20' con cinta inclinada</div><div class="block-meta"><span class="bmeta bm-t">Cinta · KB · Mancuernas · Remo</span><span class="bmeta bm-rpe">RPE 7-8</span><span class="bmeta bm-z">Z3-Z4 · 138-165 ppm</span></div></div>
+          <div class="chev" id="chev-1D4">▾</div>
+        </div>
+        <div class="block-body" id="body-1D4">
+          <div class="ex-note" style="padding:8px 0 12px;">AMRAP = as many rounds as possible: durante 20' repites esta ronda las veces que puedas, a ritmo constante. Mejor sostener 20' parejos que reventar en la ronda 2.</div>
+          <div class="ex-row"><div class="ex-num">1</div><div>
+            <div class="ex-name">Carrera en cinta con 6% de inclinación</div>
+            <div class="ex-params"><span class="ep hy">250m</span></div>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div>
+            <div class="ex-name">Kettlebell swing</div>
+            <div class="ex-params"><span class="ep hy">15 reps</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=LEeoa362S7Y" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div>
+            <div class="ex-name">Thruster con mancuernas</div>
+            <div class="ex-params"><span class="ep hy">10 reps</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=edYimjnhYPE" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">4</div><div>
+            <div class="ex-name">Remo ergómetro</div>
+            <div class="ex-params"><span class="ep hy">150m</span></div>
+          </div></div>
+          <div class="ex-note" style="padding-top:8px;">Cierre — 10' de core:</div>
+          <div class="ex-row"><div class="ex-num">5</div><div>
+            <div class="ex-name">Plancha toque hombros</div>
+            <div class="ex-params"><span class="ep hy">3 x 30"</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=daYE4t2l3QI" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">6</div><div>
+            <div class="ex-name">Bird dog</div>
+            <div class="ex-params"><span class="ep hy">3 x 10/10</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=Rn0SFzJzhQc" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">7</div><div>
+            <div class="ex-name">Plancha lateral</div>
+            <div class="ex-params"><span class="ep hy">2 x 30"/30"</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=3iTX7S0kONg" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="alert as"><span>🌤️</span><div><strong>Sábado y domingo</strong>Sin estructurar — lo que os apetezca sobre la marcha.</div></div>
+
+    </div>
+  </div>
+
+  <!-- SEMANA 2 -->
+  <div class="week-card">
+    <div class="week-top" onclick="togW(2)">
+      <div class="week-icon">S2</div>
+      <div class="week-info">
+        <div class="week-title">Semana 2 (19–25 oct) — Semana de carrera</div>
+        <div class="week-meta"><span class="wm">Gym x1</span><span class="wm">Running x3</span><span class="wm">Sobrescobio</span></div>
+      </div>
+      <div class="week-chev" id="wchev-2">▾</div>
+    </div>
+    <div class="week-body" id="wbody-2">
+
+      <div class="alert al"><span>😴</span><div><strong>Lunes — Descanso</strong>Libre del todo.</div></div>
+
+      <div class="alert ao"><span>📉</span><div><strong>Qué cambia</strong>Esta semana bajamos el volumen y quitamos casi toda la fuerza: la pierna ya está construida, ahora toca llegar fresca. Un solo día de gym, suave, y tres de running cortos. Si una sesión te pide más, no se la das: esto es lo que cuenta el domingo.</div></div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('2D1')">
+          <div class="block-icon bi-Cardio">⛰️</div>
+          <div class="block-info"><div class="block-title">Día 1 — Running: subir y bajar, suave</div><div class="block-meta"><span class="bmeta bm-t">~40 min</span><span class="bmeta bm-rpe">RPE 5</span><span class="bmeta bm-z">Z2-Z3 · 125-152 ppm</span></div></div>
+          <div class="chev" id="chev-2D1">▾</div>
+        </div>
+        <div class="block-body" id="body-2D1">
+          <div class="ex-row"><div><div class="ex-name">Calentamiento</div><div class="ex-note">10' trote suave en Z1-Z2 (112-138 ppm).</div></div></div>
+          <div class="ex-row"><div><div class="ex-name">Bloque principal — continuo y sin series</div><div class="ex-note">25' por tu terreno de subir y bajar. Z2 (125-138 ppm) de base y Z3 (138-152 ppm) solo en las cuestas, sin pasarte. Aquí no se demuestra nada: se afina la sensación de carrera.</div></div></div>
+          <div class="ex-row"><div><div class="ex-name">Las bajadas son tu recuperación</div><div class="ex-note">~60-90" trotando suave tras cada subida hasta que el pulso vuelva a Z2. Practica la bajada técnica, pasos cortos y pies ligeros, como la de la carrera.</div></div></div>
+          <div class="ex-row"><div><div class="ex-name">Vuelta a la calma</div><div class="ex-note">5' trote muy suave, Z1 (112-125 ppm).</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bHybrid">
+        <div class="block-top" onclick="tog('2D2')">
+          <div class="block-icon bi-Hybrid">⚡</div>
+          <div class="block-info"><div class="block-title">Día 2 — Gym: EMOM 18' de activación</div><div class="block-meta"><span class="bmeta bm-t">KB · Remo</span><span class="bmeta bm-rpe">RPE 5</span><span class="bmeta bm-z">Z2-Z3 · 125-152 ppm</span></div></div>
+          <div class="chev" id="chev-2D2">▾</div>
+        </div>
+        <div class="block-body" id="body-2D2">
+          <div class="ex-note" style="padding:8px 0 12px;">EMOM = every minute on the minute: al empezar cada minuto haces la estación que toque y descansas lo que te quede. Son 3 estaciones rotando durante 18' (6 rondas de cada una). Ritmo vivo pero cómodo, sin buscar el límite.</div>
+          <div class="ex-row"><div class="ex-num">1</div><div>
+            <div class="ex-name">Kettlebell swing</div>
+            <div class="ex-params"><span class="ep hy">12 reps</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=LEeoa362S7Y" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">2</div><div>
+            <div class="ex-name">Remo ergómetro</div>
+            <div class="ex-params"><span class="ep hy">150m</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=vj8MVU2UiEk" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">3</div><div>
+            <div class="ex-name">Sentadilla goblet (kettlebell)</div>
+            <div class="ex-params"><span class="ep hy">10 reps</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=VCwKVLow4-s" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-note" style="padding-top:8px;">Cierre — 10' de core:</div>
+          <div class="ex-row"><div class="ex-num">4</div><div>
+            <div class="ex-name">Plancha lateral</div>
+            <div class="ex-params"><span class="ep hy">3 x 30"/30"</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=3iTX7S0kONg" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+          <div class="ex-row"><div class="ex-num">5</div><div>
+            <div class="ex-name">Dead bug</div>
+            <div class="ex-params"><span class="ep hy">3 x 10/10</span></div>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=OUVY99ez0k0" target="_blank" rel="noopener">▶ Ver técnica</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('2D3')">
+          <div class="block-icon bi-Cardio">🏃‍♀️</div>
+          <div class="block-info"><div class="block-title">Día 3 — Running: suave + pasadas de activación</div><div class="block-meta"><span class="bmeta bm-t">~30 min</span><span class="bmeta bm-rpe">RPE 4</span><span class="bmeta bm-z">Z2 · 125-138 ppm</span></div></div>
+          <div class="chev" id="chev-2D3">▾</div>
+        </div>
+        <div class="block-body" id="body-2D3">
+          <div class="ex-row"><div><div class="ex-name">Rodaje suave</div><div class="ex-note">20' en Z2 (125-138 ppm), en llano y con sensación cómoda.</div></div></div>
+          <div class="ex-row"><div><div class="ex-name">Pasadas cortas de activación</div><div class="ex-note">4 pasadas de 20" a ritmo vivo (Z3-Z4 solo al final de cada una, sin apretar al máximo), con 40" de paseo o trote muy suave entre cada una. Es para despertar la pierna, no para cansarla.</div></div></div>
+          <div class="ex-row"><div><div class="ex-name">Vuelta a la calma</div><div class="ex-note">5' trote muy suave, Z1 (112-125 ppm).</div></div></div>
+        </div>
+      </div>
+
+      <div class="block-card bCardio">
+        <div class="block-top" onclick="tog('2D4')">
+          <div class="block-icon bi-Cardio">🏃‍♀️</div>
+          <div class="block-info"><div class="block-title">Día 4 — Running: shakeout pre-carrera</div><div class="block-meta"><span class="bmeta bm-t">15-20 min</span><span class="bmeta bm-rpe">RPE 3</span><span class="bmeta bm-z">Z1-Z2 · 112-138 ppm</span></div></div>
+          <div class="chev" id="chev-2D4">▾</div>
+        </div>
+        <div class="block-body" id="body-2D4">
+          <div class="ex-row"><div><div class="ex-name">Trote muy suave</div><div class="ex-note">15-20' en Z1-Z2 (112-138 ppm). Que te sientas ligera y despierta, no cansada. Si algo tira o molesta, corta y descansa: el domingo es lo que importa.</div></div></div>
+        </div>
+      </div>
+
+      <div class="alert as"><span>🎒</span><div><strong>Sábado — Víspera</strong>Sin estructurar. Descanso o un paseo tranquilo. Deja preparado hoy el material (zapatillas, ropa, geles, agua) y cena y duerme con calma. Nada nuevo para mañana: solo lo que ya has probado.</div></div>
+
+      <div class="note race" style="margin:10px 0 0;padding:0;">
+        <div class="note-card">
+          <div class="note-title">🏁 Domingo 25 — Sobrescobio Speed Trail</div>
+          <div class="note-text"><b>Rioseco · 17,5 km · 1.100 m D+.</b> Es la carrera del año, y llegas con la pierna hecha y fresca.<br><br><b>Primer tercio:</b> contenida, en Z2-Z3 (125-152 ppm). Si sales a tope, lo pagas en las últimas subidas.<br><b>Subidas:</b> Z3-Z4 (138-165 ppm). Si el pulso se dispara, camina fuerte con brazos activos: es más rápido que reventarte corriendo.<br><b>Bajadas:</b> técnicas y con cabeza, aprovechando para recuperar el pulso hacia Z2.<br><b>Último tercio:</b> ahí decides cuánto te queda en el depósito.<br><br>Calienta 10' de trote suave Z1-Z2 con un par de pasadas de 15-20" antes de la salida.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-note">Llegas con el trabajo hecho. Ahora toca disfrutar la montaña. 🖤</div>
+
+<script>
+  function tog(id){
+    var b=document.getElementById('body-'+id);
+    var c=document.getElementById('chev-'+id);
+    if(!b)return;
+    b.classList.toggle('open');
+    if(c)c.classList.toggle('open');
+  }
+  function togW(id){
+    var b=document.getElementById('wbody-'+id);
+    var c=document.getElementById('wchev-'+id);
+    if(!b)return;
+    b.classList.toggle('open');
+    if(c)c.classList.toggle('open');
+  }
+  document.addEventListener('DOMContentLoaded',function(){togW(1);});
+</script>
+</body>
+</html>
